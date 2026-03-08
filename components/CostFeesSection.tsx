@@ -6,7 +6,7 @@ export function CostFeesSection() {
     { applicant: "Main Applicant", cost: "$430", type: "Government Fee (AUD)" },
     { applicant: "Additional Applicant 18+", cost: "$430 each", type: "Government Fee (AUD)" },
     { applicant: "Additional Applicant Under 18", cost: "$110", type: "Government Fee (AUD)" },
-    { applicant: "Sponsorship Application Fee", cost: "~$420", type: "Sponsor Cost" },
+    { applicant: "Temporary Activity Sponsorship for Business", cost: "~$420", type: <span className="bg-[#E40229] text-white px-2 py-0.5 rounded text-xs font-bold inline-block mt-1">Government Fee</span> },
     { applicant: "Nomination Fee", cost: "~$330", type: "Sponsor Cost" },
     { applicant: "Subsequent Temporary Application", cost: "$700", type: "If applicable" }
   ];
@@ -16,10 +16,10 @@ export function CostFeesSection() {
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#012269] mb-4">
-            Australia Training Visa Cost & Fees 2025
+            Australia Training Visa Cost & Fees 2026
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Understanding the full cost of your Australia Training Visa application helps you plan ahead. Below is a complete breakdown of government fees for the Subclass 407 visa in 2025.
+            Understanding the full cost of your Australia Training Visa application helps you plan ahead. Below is a complete breakdown of government fees for the Subclass 407 visa in 2026.
           </p>
         </div>
 

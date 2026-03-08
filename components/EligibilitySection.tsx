@@ -9,7 +9,8 @@ export function EligibilitySection() {
     "Must demonstrate functional English — IELTS 4.5 or equivalent accepted",
     "Must meet Australian health and character requirements",
     "Must have no outstanding debt to the Australian Government",
-    "Must have no history of visa refusal or cancellation (conditions apply)"
+    "Must have no history of visa refusal or cancellation (conditions apply)",
+    "Must have no history of visa cancellation or not complying with visa conditions."
   ];
 
   return (
