@@ -26,8 +26,14 @@ export const Button: React.FC<ButtonProps> = ({
   }
   
   if (href) {
+    const isExternal = href.startsWith('http');
     return (
-      <Link href={href} className={`${baseClasses} ${variantClasses} ${className}`} {...(props as any)}>
+      <Link 
+        href={href} 
+        className={`${baseClasses} ${variantClasses} ${className}`} 
+        {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        {...(props as any)}
+      >
         {children}
       </Link>
     );

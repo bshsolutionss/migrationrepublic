@@ -1,82 +1,43 @@
-import { Info } from "lucide-react";
+import { Info, Check } from "lucide-react";
 import { Button } from "./Button";
 
 export function CostFeesSection() {
-  const fees = [
-    { applicant: "Main Applicant", cost: "$430", type: "Government Fee (AUD)" },
-    { applicant: "Additional Applicant 18+", cost: "$430 each", type: "Government Fee (AUD)" },
-    { applicant: "Additional Applicant Under 18", cost: "$110", type: "Government Fee (AUD)" },
-    { applicant: "Temporary Activity Sponsorship for Business", cost: "~$420", type: <span className="bg-[#E40229] text-white px-2 py-0.5 rounded text-xs font-bold inline-block mt-1">Government Fee</span> },
-    { applicant: "Nomination Fee", cost: "~$330", type: "Sponsor Cost" },
-    { applicant: "Subsequent Temporary Application", cost: "$700", type: "If applicable" }
-  ];
-
   return (
-    <section id="cost-fees" className="py-20 bg-gray-50">
+    <section id="cost-fees" className="py-24 bg-gray-50 border-t border-gray-100">
       <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#012269] mb-4">
-            Australia Training Visa Cost & Fees 2026
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Understanding the full cost of your Australia Training Visa application helps you plan ahead. Below is a complete breakdown of government fees for the Subclass 407 visa in 2026.
-          </p>
-        </div>
-
-        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden mb-12">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[600px]">
-              <thead>
-                <tr className="bg-[#012269] text-white">
-                  <th className="py-4 px-6 font-semibold">Applicant / Item</th>
-                  <th className="py-4 px-6 font-semibold text-right">Fee (AUD)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {fees.map((fee, index) => (
-                  <tr key={index} className="hover:bg-blue-50/50 transition-colors">
-                    <td className="py-4 px-6">
-                      <span className="font-medium text-gray-900 block">{fee.applicant}</span>
-                      <span className="text-sm text-gray-500">{fee.type}</span>
-                    </td>
-                    <td className="py-4 px-6 font-bold text-[#012269] text-right">{fee.cost}</td>
-                  </tr>
-                ))}
-                <tr className="bg-blue-50">
-                  <td className="py-5 px-6 font-bold text-[#012269] text-lg">Estimated Total (Single Applicant)</td>
-                  <td className="py-5 px-6 font-bold text-[#E40229] text-xl text-right">AUD $1,500+</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-[#012269] mb-12 text-center">
+          Australia Training Visa Cost and Fees 2026 (Subclass 407)
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-            <h3 className="text-xl font-bold text-[#012269] mb-6">Additional Costs to Budget For</h3>
-            <ul className="space-y-4 text-gray-700">
-              <li className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-[#E40229]"></div> Medical examination fees</li>
-              <li className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-[#E40229]"></div> Police clearance certificates</li>
-              <li className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-[#E40229]"></div> Overseas Health Cover (mandatory)</li>
-              <li className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-[#E40229]"></div> Document translation and certification</li>
-              <li className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-[#E40229]"></div> Migration agent professional fees</li>
-            </ul>
+          <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl">
+            <h3 className="text-2xl font-bold text-[#012269] mb-6 border-b border-gray-100 pb-4">Government Fee</h3>
+            <div className="flex items-end gap-2 mb-6">
+              <span className="text-5xl font-extrabold text-[#E40229]">AUD 430</span>
+              <span className="text-gray-500 font-medium mb-1">for primary applicant</span>
+            </div>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              The visa application charge for the Subclass 407 as of 2026 is AUD 430 for the primary applicant. Additional secondary applicants (such as a spouse or dependent children) each attract a separate fee.
+            </p>
           </div>
           
-          <div className="bg-blue-50 rounded-2xl p-8 border border-blue-100 relative shadow-sm">
-            <div className="absolute -top-5 -left-5 bg-white p-3 rounded-full shadow-lg border border-gray-100">
-              <Info className="text-[#012269] w-6 h-6" />
-            </div>
-            <h4 className="font-bold text-[#012269] text-xl mb-4 mt-2">Pro Tip</h4>
-            <p className="text-gray-700 leading-relaxed text-lg">
-              The total cost varies depending on your family size, sponsor situation, and individual circumstances. Contact Migration Republic for an accurate cost estimate tailored to your case.
+          <div className="bg-[#012269] p-8 rounded-3xl shadow-xl text-white relative overflow-hidden flex flex-col justify-center">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600 rounded-bl-full opacity-20"></div>
+            <p className="text-blue-50 text-xl font-medium leading-relaxed z-10">
+              This is the government fee only. Total costs will be significantly higher when factoring in expenses such as health examination fees, police certificate charges, English language test fees (if not already taken), migration agent professional fees, and health insurance for the duration of stay.
             </p>
           </div>
         </div>
 
-        <div className="text-center">
-          <Button href="https://migrationrepublic.com.au/book-a-consultation/" variant="accent" className="px-8 py-4 text-lg">
-            Get an exact cost estimate — Book a Consultation
+        <div className="bg-red-50 p-8 rounded-2xl border border-red-100 shadow-sm text-center">
+          <p className="text-gray-800 text-xl font-bold">
+            In total, applicants should budget between <span className="text-[#E40229]">AUD 2,500 to AUD 6,000 or more</span> depending on the complexity of the case and the number of family members included.
+          </p>
+        </div>
+
+        <div className="mt-12 text-center">
+          <Button href="https://migrationrepublic.com.au/book-a-consultation/" variant="accent" className="px-10 py-4 text-lg shadow-xl hover:shadow-2xl transition-all">
+            Book a Consultation
           </Button>
         </div>
       </div>

@@ -1,98 +1,85 @@
-import { CheckCircle2, FileText } from "lucide-react";
-import { Button } from "./Button";
+import { ArrowRight, Building2, UserCircle2, Stethoscope, CheckCircle, Scale, FileText } from "lucide-react";
 
 export function HowToApplySection() {
   const steps = [
     {
-      title: "Step 1 — Confirm Your Eligibility",
-      desc: "Check your occupation, work experience, English proficiency, and which training stream applies to your situation before proceeding."
+      title: "Step 1 — Sponsor Applies for Approval",
+      desc: "The Australian organisation wishing to host a trainee must first apply to the Department of Home Affairs to become an approved sponsor. This is done through ImmiAccount. The application includes business details, financial records, and details of the intended training program.",
+      icon: <Building2 className="w-8 h-8 text-white" />,
+      color: "from-blue-600 to-[#012269]",
     },
     {
-      title: "Step 2 — Find an Approved Sponsor",
-      desc: "Your training must be conducted with an organisation approved by the Department of Home Affairs as a Temporary Activities Sponsor."
+      title: "Step 2 — Sponsor Lodges a Nomination",
+      desc: "Once approved, the sponsor nominates the specific individual they wish to train. The nomination must include the full training plan, evidence that training is not available in the nominee's home country, and confirmation of the remuneration package.",
+      icon: <FileText className="w-8 h-8 text-white" />,
+      color: "from-blue-500 to-blue-700",
+      useIconFromLucide: "FileText",
     },
     {
-      title: "Step 3 — Sponsor Lodges Sponsorship Application",
-      desc: "Your Australian sponsor applies for approval from the Department of Home Affairs. This step alone can take 1 to 2 months, so starting early is important."
+      title: "Step 3 — Applicant Lodges the Visa Application",
+      desc: "After receiving the nomination, the applicant can submit their visa application online through ImmiAccount. All supporting documents must be attached at this stage. Incomplete applications significantly delay processing times.",
+      icon: <UserCircle2 className="w-8 h-8 text-white" />,
+      color: "from-[#E40229] to-red-700",
     },
     {
-      title: "Step 4 — Sponsor Submits Nomination",
-      desc: "Once approved, your sponsor nominates you with a detailed training plan that clearly outlines your program objectives, training activities, and duration."
+      title: "Step 4 — Health and Character Checks",
+      desc: "The Department of Home Affairs will request a health examination through a panel physician and may request additional police clearances. These checks can be requested at any point during assessment.",
+      icon: <Stethoscope className="w-8 h-8 text-white" />,
+      color: "from-purple-500 to-purple-700",
     },
     {
-      title: "Step 5 — Lodge Your Visa Application",
-      desc: "Submit your Subclass 407 visa application online through ImmiAccount along with all required supporting documents."
+      title: "Step 5 — Decision",
+      desc: "A visa officer will assess the complete application. They may request additional information (a Section 56 request) if something requires clarification. Once satisfied, they will grant or refuse the visa. Grant letters are sent to the email address on file.",
+      icon: <CheckCircle className="w-8 h-8 text-white" />,
+      color: "from-green-500 to-green-700",
     },
-    {
-      title: "Step 6 — Complete Health & Character Checks",
-      desc: "Attend your medical examination and gather police clearance certificates from every country you have lived in for 12 or more months."
-    },
-    {
-      title: "Step 7 — Await Visa Decision",
-      desc: "Around 50% of Training Visa applications are processed within 6 months. 90% of applications receive a decision within 13 months."
-    }
-  ];
-
-  const docs = [
-    "Valid passport",
-    "Signed training plan from your sponsor",
-    "Evidence of qualifications and relevant work experience",
-    "English language test results (IELTS 4.5 or equivalent)",
-    "Proof of Overseas Health Cover",
-    "Police clearance certificates",
-    "Recent passport-size photographs"
   ];
 
   return (
-    <section id="how-to-apply" className="py-20 bg-white">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#012269] mb-4">
+    <section id="how-to-apply" className="py-24 bg-gray-50 border-t border-gray-100">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#012269] mb-6">
             How to Apply for the Australia Training Visa — Step by Step
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Applying for the Subclass 407 Training Visa involves both you and your sponsoring organisation. Follow these steps to ensure a smooth and successful application.
+          <p className="text-lg text-gray-700 leading-relaxed">
+            The application process for the Subclass 407 involves both the sponsor and the applicant completing separate but linked steps. Here is a clear breakdown of the full process:
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12 mb-16">
-          <div className="lg:w-2/3">
-            <div className="relative border-l-2 border-blue-200 ml-4 md:ml-6 space-y-10">
-              {steps.map((step, index) => (
-                <div key={index} className="relative pl-8 md:pl-10 group">
-                  <div className="absolute -left-[11px] top-1 bg-white border-4 border-[#012269] group-hover:border-[#E40229] transition-colors rounded-full w-5 h-5 flex items-center justify-center"></div>
-                  <h3 className="text-xl font-bold text-[#012269] mb-2">{step.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{step.desc}</p>
+        <div className="relative">
+          {/* Vertical line connecting steps on larger screens */}
+          <div className="hidden md:block absolute left-12 top-10 bottom-10 w-1 bg-gradient-to-b from-[#012269] via-[#E40229] to-green-600 rounded-full opacity-20"></div>
+
+          <div className="space-y-12 relative z-10">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className="flex flex-col md:flex-row gap-6 md:gap-10 items-start group"
+              >
+                {/* Step Icon */}
+                <div
+                  className={`w-24 h-24 rounded-3xl flex items-center justify-center flex-shrink-0 bg-gradient-to-br ${step.color} shadow-xl transform transition-transform group-hover:scale-105 group-hover:-rotate-3`}
+                >
+                  {index === 1 ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-file-text text-white"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                  ) : (
+                    step.icon
+                  )}
                 </div>
-              ))}
-            </div>
-          </div>
 
-          <div className="lg:w-1/3">
-            <div className="bg-[#012269] text-white p-8 rounded-2xl shadow-xl sticky top-28 border border-blue-900">
-              <div className="flex items-center gap-3 mb-6">
-                <FileText className="text-[#E40229] w-8 h-8" />
-                <h3 className="text-2xl font-bold">Documents Required</h3>
+                {/* Step Content */}
+                <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-md w-full hover:shadow-xl transition-all">
+                  <h3 className="text-2xl font-bold text-[#012269] mb-4">
+                    {step.title}
+                  </h3>
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
               </div>
-              <ul className="space-y-4">
-                {docs.map((doc, idx) => (
-                  <li key={idx} className="flex gap-3">
-                    <CheckCircle2 className="text-[#E40229] w-5 h-5 flex-shrink-0 mt-0.5" />
-                    <span className="text-blue-50 font-medium leading-tight">{doc}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            ))}
           </div>
-        </div>
-
-        <div className="text-center bg-gray-50 rounded-2xl p-8 border border-gray-200 shadow-sm">
-          <p className="text-xl text-[#012269] font-medium mb-6">
-            Let Migration Republic manage your entire application — from sponsor to visa grant.
-          </p>
-          <Button href="https://migrationrepublic.com.au/book-a-consultation/" variant="accent" className="px-8 py-4 text-lg">
-            Talk to an Agent →
-          </Button>
         </div>
       </div>
     </section>
